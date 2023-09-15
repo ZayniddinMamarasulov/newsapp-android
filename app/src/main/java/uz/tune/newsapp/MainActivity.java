@@ -80,7 +80,6 @@ public class MainActivity extends AppCompatActivity implements ProfileDialog.Cal
             }
         });
 
-
         binding.btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -94,6 +93,12 @@ public class MainActivity extends AppCompatActivity implements ProfileDialog.Cal
                         .commit();
             }
         });
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.container, new HomeFragment())
+                .addToBackStack("")
+                .commit();
     }
 
     @Override
@@ -109,6 +114,5 @@ public class MainActivity extends AppCompatActivity implements ProfileDialog.Cal
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
     }
 }
